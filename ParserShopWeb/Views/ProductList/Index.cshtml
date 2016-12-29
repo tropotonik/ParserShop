@@ -1,0 +1,33 @@
+﻿@model List<ParserShopWeb.Models.Entities>
+@{
+    ViewBag.Title = "";
+}
+<h4>
+    Загружено @Model.Count() продуктов
+</h4>
+
+    <table border="3" cellspacing="5" cellpadding="10">
+        <thead>
+            <tr>
+                <th width="200">Наименование</th>
+                <th width="120">Цена</th>
+                <th width="500">Описание</th>
+                <th width="200">Ссылка</th>
+                <th>Изображение</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td width="500">@product.Description</td>
+                    <td width="100"><a href=@product.Url>@product.Name</a></td>
+                    <td width="100"><img alt= "Image" width="100" hight="100" src="@product.Url_Image"/></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
